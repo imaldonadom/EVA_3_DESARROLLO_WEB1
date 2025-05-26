@@ -24,6 +24,7 @@ class Usuario
         return collect(self::$usuarios)->firstWhere('email', $email);
     }
 
+
     public static function todos()
     {
         return self::$usuarios;

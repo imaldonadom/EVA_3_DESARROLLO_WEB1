@@ -13,6 +13,9 @@ Route::get('/proyectos/{id}', [ProyectoController::class, 'show']);
 Route::put('/proyectos/{id}', [ProyectoController::class, 'update']);
 Route::delete('/proyectos/{id}', [ProyectoController::class, 'destroy']);
 
+Route::get('/test', function () {
+    return response()->json(['ok' => true]);
+});
 // Ruta de login
 Route::post('/login', [AuthController::class, 'login']);
 
