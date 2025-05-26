@@ -23,7 +23,8 @@ Route::get('/proyecto/{id}', function ($id) {
 });
 
 Route::get('/editar-proyecto/{id}', function ($id) {
-    $url = 'http://localhost/EVA_3_DESARROLLO_WEB1/api/proyectos/' . $id;
+    $url = request()->getSchemeAndHttpHost() . '/EVA_3_DESARROLLO_WEB1/api/proyectos/' . $id;
+
     $response = Http::get($url);
     $proyecto = $response->successful() ? $response->json() : null;
 

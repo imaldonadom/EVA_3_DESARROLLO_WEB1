@@ -29,18 +29,17 @@ class ProyectoController extends Controller
     {
         return response()->json($this->proyectos, 200);
     }
+public function show($id)
+{
+    $proyecto = collect($this->proyectos)->firstWhere('id', $id);
 
-    public function show($id)
-    {
-        $proyecto = collect($this->proyectos)->firstWhere('id', $id);
-
-
-        if ($proyecto) {
-            return response()->json($proyecto, 200);
-        }
-
-        return response()->json(['error' => 'Proyecto no encontrado'], 404);
+    if ($proyecto) {
+        return response()->json($proyecto, 200);
     }
+
+    return response()->json(['error' => 'Proyecto no encontrado'], 404);
+}
+
 
     public function store(Request $request)
     {
